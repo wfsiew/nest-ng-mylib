@@ -1,0 +1,36 @@
+<div class="login-page bg">
+  <div class="login-box">
+    <div class="row mt">
+      <div class="col-sm-12 col-12 text-center">
+        
+      </div>
+    </div>
+    <div class="login-logo">
+      <div class="hd-1">Library System</div>
+    </div>
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+  
+        <form [formGroup]="mform" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Username" required name="username" formControlName="username">
+          </div>
+          <div class="input-group mb-3">
+            <input [type]="viewpwd ? 'text' : 'password'" class="form-control" placeholder="Password" required name="password" formControlName="password">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-info btn-flat" (click)="onTogglePassword()" [title]="viewpwd ? 'Hide password': 'Show password'">
+                <i [ngClass]="{'fa-eye': viewpwd, 'fa-eye-slash': !viewpwd}" class="fa"></i>
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary btn-block" [disabled]="invalid('username') || invalid('password')"><i class="fas fa-sign-in-alt"></i> Log In</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

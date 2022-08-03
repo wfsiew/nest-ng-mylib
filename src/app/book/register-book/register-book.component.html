@@ -1,0 +1,44 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-12">
+        <h1 class="m-0 text-dark">Register Book</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid" *ngIf="!isLoading">
+    <form class="form-horizontal" [formGroup]="mform" (ngSubmit)="onSubmit()">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">ISBN&nbsp;<span class="text-danger">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="ISBN" name="isbn" formControlName="isbn"
+                [ngClass]="{'is-invalid': invalid('isbn')}">
+              <small class="badge badge-danger" 
+                *ngIf="invalid('isbn') && f['isbn'].hasError('required')">
+                ISBN is required
+              </small>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Username&nbsp;<span class="text-danger">*</span></label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Username" name="username" formControlName="username"
+                [ngClass]="{'is-invalid': invalid('username')}">
+              <small class="badge badge-danger" 
+                *ngIf="invalid('username') && f['username'].hasError('required')">
+                Username is required
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Register Book</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

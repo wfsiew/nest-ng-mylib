@@ -1,0 +1,79 @@
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-12">
+        <h1 class="m-0 text-dark">History Books Borrowed</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header">
+
+      </div>
+      <div class="card-body">
+        <div class="text-center" *ngIf="isEmpty(list) && !isLoading">
+          <h4>No books found</h4>
+        </div>
+
+        <div class="table-responsive" *ngIf="!isEmpty(list) && !isLoading">
+          <table class="table table-hover table-sm">
+            <thead>
+              <tr class="d-flex">
+                <th class="col-3">
+                  Title
+                </th>
+                <th class="col-3">
+                  Author
+                </th>
+                <th class="col-2">
+                  ISBN
+                </th>
+                <th class="col-2">
+                  Borrow Date
+                </th>
+                <th class="col-2">
+                  Return Date
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let o of list" class="d-flex">
+                <td class="col-3">
+                  {{ o.book.title }}
+                </td>
+                <td class="col-3">
+                  {{ o.book.author }}
+                </td>
+                <td class="col-2">
+                  {{ o.book.isbn }}
+                </td>
+                <td class="col-2">
+                  {{ o.start_date | date:'d MMM y, h:mm:ss a' }} 
+                </td>
+                <td class="col-2">
+                  {{ o.return_date | date:'d MMM y, h:mm:ss a' }} 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer" *ngIf="totalCount" [ngClass]="{'d-none': isLoading}">
+        <div class="float-left pg-label">
+          Page {{ page }} / {{ totalPage }} of {{ totalCount }} record(s)
+        </div>
+        <div class="float-right">
+          <pagination 
+            [totalItems]="totalCount" 
+            [itemsPerPage]="pageSize" 
+            [maxSize]="MAX_PAGE_NUMBERS" 
+            [(ngModel)]="page" 
+            (pageChanged)="pageChanged($event)"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
