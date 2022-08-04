@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { BooksAvailableComponent } from './books/books-available/books-available.component';
 import { BooksBorrowComponent } from './books/books-borrow/books-borrow.component';
 import { BooksBorrowHistoryComponent } from './books/books-borrow-history/books-borrow-history.component';
+import { BooksBorrowAllComponent } from './books/books-borrow-all/books-borrow-all.component';
 import { ReturnBookComponent } from './book/return-book/return-book.component';
 import { RegisterBookComponent } from './book/register-book/register-book.component';
 
@@ -37,6 +38,11 @@ const routes: Routes = [
       {
         path: 'books/borrow/history',
         component: BooksBorrowHistoryComponent,
+        canActivate: [AuthGuardService]
+      },
+      {
+        path: 'books/borrow/all',
+        component: BooksBorrowAllComponent,
         canActivate: [AuthGuardService]
       },
       {

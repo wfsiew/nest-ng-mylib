@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export interface Book {
   id: number;
   isbn: string;
@@ -16,4 +18,5 @@ export interface BooksBorrow {
   book_id: number;
   user_id: number;
   book: Book;
+  user: User;
 }

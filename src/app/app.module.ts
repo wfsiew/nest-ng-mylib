@@ -18,6 +18,7 @@ import { ErrorModalComponent } from './shared/components/error-modal/error-modal
 import { BooksAvailableComponent } from './books/books-available/books-available.component';
 import { BooksBorrowComponent } from './books/books-borrow/books-borrow.component';
 import { BooksBorrowHistoryComponent } from './books/books-borrow-history/books-borrow-history.component';
+import { BooksBorrowAllComponent } from './books/books-borrow-all/books-borrow-all.component';
 import { ReturnBookComponent } from './book/return-book/return-book.component';
 import { RegisterBookComponent } from './book/register-book/register-book.component';
 
@@ -42,6 +43,7 @@ import { BookService } from './services/book.service';
     BooksAvailableComponent,
     BooksBorrowComponent,
     BooksBorrowHistoryComponent,
+    BooksBorrowAllComponent,
     ReturnBookComponent,
     RegisterBookComponent
   ],

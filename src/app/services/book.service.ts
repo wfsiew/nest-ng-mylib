@@ -32,6 +32,13 @@ export class BookService {
     return this.http.get(`${this.baseUrl}/book/borrow/history`, { params: prm, observe: 'response' });
   }
 
+  listBookBorrowAll(page: any, limit: any) {
+    let prm: HttpParams = new HttpParams()
+      .set('_page', page)
+      .set('_limit', limit);
+    return this.http.get(`${this.baseUrl}/book/borrow/all`, { params: prm, observe: 'response' });
+  }
+
   registerBook(o: any) {
     return this.http.post(`${this.baseUrl}/book/borrow/register`, o);
   }

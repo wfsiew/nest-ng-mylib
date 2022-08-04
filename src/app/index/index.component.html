@@ -75,7 +75,7 @@
               <a href="#" class="nav-link" (click)="goto('books', 'borrow/current')" [ngClass]="{'active': menu === 'books/borrow/current'}">
                 <i class="fas fa-book nav-icon"></i>
                 <p>
-                  Borrowed Books
+                  Books Borrowed
                 </p>
               </a>
             </li>
@@ -83,12 +83,20 @@
               <a href="#" class="nav-link" (click)="goto('books', 'borrow/history')" [ngClass]="{'active': menu === 'books/borrow/history'}">
                 <i class="fas fa-book nav-icon"></i>
                 <p>
-                  History Borrowed Books
+                  History Books Borrowed
                 </p>
               </a>
             </li>
           </ng-container>
           <ng-container *ngIf="role === ROLE.LIBRARIAN">
+            <li class="nav-item">
+              <a href="#" class="nav-link" (click)="goto('books', 'borrow/all')" [ngClass]="{'active': menu === 'books/borrow/all'}">
+                <i class="fas fa-book nav-icon"></i>
+                <p>
+                  Books Borrowed
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="#" class="nav-link" (click)="goto('book', 'register')" [ngClass]="{'active': menu === 'book/register'}">
                 <i class="fas fa-book nav-icon"></i>
@@ -116,69 +124,6 @@
           </li>
         </ul>
       </nav>
-
-      <!-- <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item has-treeview" [ngClass]="{'menu-open': menu === 'report'}">
-            <a href="#" class="nav-link" [ngClass]="{'active': menu === 'report'}">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Reports
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item" *ngFor="let m of submenuReport">
-                <a href="#" class="nav-link" (click)="goto('report', m.path)"
-                  [ngClass]="{'active': submenu === m.path}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ m.title }}</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-          <ng-container *ngIf="role === ROLE.ADMIN && !isLoading">
-            <li class="nav-item has-treeview" [ngClass]="{'menu-open': menu === 'setup'}">
-              <a href="#" class="nav-link" [ngClass]="{'active': menu === 'setup'}">
-                <i class="nav-icon fas fa-cog"></i>
-                <p>
-                  Setup
-                  <i class="right fas fa-angle-left"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item" *ngFor="let m of submenuSetup">
-                  <a href="#" class="nav-link" (click)="goto('setup', m.path)"
-                    [ngClass]="{'active': submenu === m.path}">
-                    <i class="far fa-circle nav-icon"></i>
-                    <p>{{ m.title }}</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ng-container>
-
-          <li class="nav-item has-treeview" [ngClass]="{'menu-open': menu === 'profile'}">
-            <a href="#" class="nav-link" [ngClass]="{'active': menu === 'profile'}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Profile
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item" *ngFor="let m of submenuProfile">
-                <a href="#" class="nav-link" (click)="goto('profile', m.path)"
-                  [ngClass]="{'active': submenu === m.path}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>{{ m.title }}</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav> -->
     </div>
   </aside>
 
